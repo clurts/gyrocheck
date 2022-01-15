@@ -28,18 +28,19 @@ const Gyro = () => {
           }
     }, []);
 useEffect(() => {
- navigator.gyroscope.addEventListener('reading', ()  => {
-   setGyroX(navigator.gyroscope.x);
-   setGyroY(navigator.gyroscope.y)
-   setGyroZ(navigator.gyroscope.z)
- });
- navigator.gyroscope.start();
+  if (gyroavail) {
+
+    setGyroX(navigator.gyroscope.x);
+    setGyroY(navigator.gyroscope.y)
+    setGyroZ(navigator.gyroscope.z)
+  }
 
         
  }, []);
 
     return ( 
         <div>
+            <h1>hallo....</h1>
             <h2>Readings from gyroscope:</h2>
             <p>X: {gyroX}</p>
             <p>Y: {gyroY}</p>
