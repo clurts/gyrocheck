@@ -52,8 +52,9 @@ useEffect(() => {
             <p>gamma: {deviceGamma}</p>
         </div>
 
-        <button onClick={enableDeviceOrientation}>Enable on iphone</button>
-
+        { DeviceMotionEvent.requestPermission().then(response => response !== 'granted' (<button onClick={enableDeviceOrientation}>Enable on iphone</button> ))
+          
+}
         </>
      );
 
