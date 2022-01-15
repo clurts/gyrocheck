@@ -29,9 +29,9 @@ const Gyro = () => {
     }, []);
 useEffect(() => {
  navigator.gyroscope.addEventListener('reading', ()  => {
-   setGyroX(gyroscope.x);
-   setGyroY(gyroscope.y)
-   setGyroZ(gyroscope.z)
+   setGyroX(navigator.gyroscope.x);
+   setGyroY(navigator.gyroscope.y)
+   setGyroZ(navigator.gyroscope.z)
  });
  navigator.gyroscope.start();
 
