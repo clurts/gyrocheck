@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 
 const Gyro = () => {
 
-    const [gyroX, setGyroX] = useState(null);
-    const [gyroY, setGyroY] = useState(null);
-    const [gyroZ, setGyroZ] = useState(null);
-
+    const [deviceAlpha, setDeviceAlpha] = useState();
+    const [deviceBeta, setDeviceBeta] = useState();
+    const [deviceGamma, setDeviceGamma] = useState();
     const [gyroavail, setGyroavail] = useState(false);
 
     let date =  new Date();
@@ -28,24 +27,20 @@ const Gyro = () => {
           }
     }, []);
 useEffect(() => {
-  if (gyroavail) {
-
-    setGyroX(navigator.gyroscope.x);
-    setGyroY(navigator.gyroscope.y)
-    setGyroZ(navigator.gyroscope.z)
-  }
-
-        
+  window.addEventListener("deviceorientation", e => {
+    setDeviceAlpha(e.alpha)
+    setDeviceBeta(e.beta)
+    setDeviceGamma(e.gamma)
+  })   
  }, [gyroavail]);
 
     return ( 
         <div>
             <h1>hallo....</h1>
             <h2>Readings from gyroscope:</h2>
-            <p>X: {gyroX}</p>
-            <p>Y: {gyroY}</p>
-            <p>Z: {gyroZ}</p>
-            {gyroavail ? (<p>Yaaay</p>) : (<p>naaah!!</p>)}
+            <p>alpha: {deviceAlpha}</p>
+            <p>beta: {deviceBeta}</p>
+            <p>gamma: {deviceGamma}</p>
         </div>
      );
 
