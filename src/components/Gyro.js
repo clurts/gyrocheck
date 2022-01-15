@@ -16,21 +16,7 @@ const Gyro = () => {
      }
     }, []);
 
-    useEffect(() => {
-        if ("geolocation" in navigator) {
-            console.log("Geolocation available");
-          } else {
-            console.log("Geolocation not Available");
-          }
 
-
-          if ("gyroscope" in navigator) {
-            console.log("Gyroscope available");
-            setGyroavail(true)
-          } else {
-            console.log("Gyroscope not Available");
-          }
-    }, []);
 
 useEffect(() => {
   if (isiOS) {
