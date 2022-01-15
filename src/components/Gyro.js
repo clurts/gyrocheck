@@ -52,7 +52,7 @@ useEffect(() => {
             <p>gamma: {deviceGamma}</p>
         </div>
 
-        <button onClick={enableDeviceOrientation}>Enable on iphone</button>
+        { isiOS && !deviceAlpha ? <button onClick={enableDeviceOrientation}>Enable on iphone</button> : null }
           
 
         </>
