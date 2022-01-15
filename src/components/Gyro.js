@@ -19,28 +19,30 @@ const Gyro = () => {
 
 
 useEffect(() => {
-  if (isiOS) {
-    DeviceMotionEvent.requestPermission().then(response => {
-      if (response === 'granted') {
-          window.addEventListener('deviceorientation',(e) => {
-            setDeviceAlpha(e.alpha.toFixed(1))
-            setDeviceBeta(e.beta.toFixed(1))
-            setDeviceGamma(e.gamma.toFixed(1))
-          });       
-       }
-  })
-  } else {
+
   window.addEventListener("deviceorientation", e => {
     setDeviceAlpha(e.alpha.toFixed(1))
     setDeviceBeta(e.beta.toFixed(1))
     setDeviceGamma(e.gamma.toFixed(1))
   }) 
-}  
- }, [isiOS]);
+  
+ }, []);
 
+ const enableDeviceOrientation = () => {
+  DeviceMotionEvent.requestPermission().then(response => {
+    if (response === 'granted') {
+        window.addEventListener('deviceorientation',(e) => {
+          setDeviceAlpha(e.alpha.toFixed(1))
+          setDeviceBeta(e.beta.toFixed(1))
+          setDeviceGamma(e.gamma.toFixed(1))
+        });       
+     }
+})
+}
 
 
     return ( 
+      <>
         <div>
             <h1>hallo....</h1>
             { isiOS && <p>Du er på en iPhone!!!</p>}
@@ -49,6 +51,10 @@ useEffect(() => {
             <p>beta: {deviceBeta}</p>
             <p>gamma: {deviceGamma}</p>
         </div>
+
+        <button onClick={enableDeviceOrientation}>Enable on iphone</button>
+
+        </>
      );
 
 
