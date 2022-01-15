@@ -27,18 +27,16 @@ const Gyro = () => {
             console.log("Gyroscope not Available");
           }
     }, []);
-// useEffect(() => {
-
-// gyroscope.addEventListener('reading', e => {
-//   setGyroX(gyroscope.x);
-//   setGyroY(gyroscope.y)
-//   setGyroZ(gyroscope.z)
-
-// });
-// gyroscope.start();
+useEffect(() => {
+ gyroscope.addEventListener('reading', ()  => {
+   setGyroX(gyroscope.x);
+   setGyroY(gyroscope.y)
+   setGyroZ(gyroscope.z)
+ });
+ gyroscope.start();
 
         
-    // }, []);
+ }, []);
 
     return ( 
         <div>
