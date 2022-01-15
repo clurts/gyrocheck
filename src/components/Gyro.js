@@ -28,12 +28,12 @@ const Gyro = () => {
           }
     }, []);
 useEffect(() => {
- gyroscope.addEventListener('reading', ()  => {
+ navigator.gyroscope.addEventListener('reading', ()  => {
    setGyroX(gyroscope.x);
    setGyroY(gyroscope.y)
    setGyroZ(gyroscope.z)
  });
- gyroscope.start();
+ navigator.gyroscope.start();
 
         
  }, []);
