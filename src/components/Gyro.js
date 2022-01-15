@@ -5,7 +5,6 @@ const Gyro = () => {
     const [deviceAlpha, setDeviceAlpha] = useState();
     const [deviceBeta, setDeviceBeta] = useState();
     const [deviceGamma, setDeviceGamma] = useState();
-    const [gyroavail, setGyroavail] = useState(false);
     const [isiOS, setIsiOS] = useState(false);
 
     let date =  new Date();
@@ -36,7 +35,7 @@ const Gyro = () => {
 useEffect(() => {
   if (isiOS) {
     DeviceMotionEvent.requestPermission().then(response => {
-      if (response == 'granted') {
+      if (response === 'granted') {
           window.addEventListener('deviceorientation',(e) => {
             setDeviceAlpha(e.alpha.toFixed(1))
             setDeviceBeta(e.beta.toFixed(1))
