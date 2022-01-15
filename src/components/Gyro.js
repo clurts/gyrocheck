@@ -36,7 +36,7 @@ useEffect(() => {
   }
 
         
- }, []);
+ }, [gyroavail]);
 
     return ( 
         <div>
